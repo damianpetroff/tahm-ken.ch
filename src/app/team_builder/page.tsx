@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Champion, getChampions, getVersions } from "../../lib/@ddragon";
+import { Champion, getChampions, getVersions } from "../../lib/ddragon";
 
 export default async function Home() {
   const versions: Array<string> = await getVersions();
