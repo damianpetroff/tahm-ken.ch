@@ -1,8 +1,29 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
+import { FaDiscord, FaGithub } from "react-icons/fa";
+import { SiKofi } from "react-icons/si";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const socials = [
+  {
+    name: "Discord",
+    href: "https://discord.gg/aHs3uDraNU",
+    icon: () => <FaDiscord size={30} />,
+  },
+  {
+    name: "Ko-Fi",
+    href: "https://ko-fi.com/theraphael0000",
+    icon: () => <SiKofi size={30} />,
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/TheRaphael0000/tahm-ken.ch/",
+    icon: () => <FaGithub size={30} />,
+  },
+];
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,29 +40,80 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="fixed bg-[url('/img/tahm_kench/TahmKench_30.jpg')] bg-center bg-cover w-full h-full blur-sm saturate-150 scale-[1.2] -scale-x-[1.2]  opacity-20 -z-40" />
         <header>
-          <nav className="flex">
-            <a href="/">
-              <div className="flex h-16 w-16 p-2 m-4 justify-center items-center">
-                <img src="/img/tahm_kench/icon.png" alt="logo" />
+          <nav className="flex justify-between my-6 mx-12">
+            <div className="flex">
+              <a href="/">
+                <div className="relative h-12 w-12 mr-6 justify-center items-center">
+                  <Image
+                    src="/img/tahm_kench/icon.png"
+                    alt="logo"
+                    fill
+                    sizes="(max-width: 768px) 25vw, (max-width: 1200px) 25vw, 11vw"
+                  />
+                </div>
+              </a>
+              <ul className="flex gap-x-6 text-gray-300 items-center">
+                <li className="hover:text-gray-100 hover:border-b border-b-gray-100">
+                  <a href="/team_builder">Team Builder</a>
+                </li>
+                <li className="hover:text-gray-100 hover:border-b border-b-gray-100">
+                  <a href="/team_builder">Compositions</a>
+                </li>
+                <li className="hover:text-gray-100 hover:border-b border-b-gray-100">
+                  <a href="/team_builder">Multi-search</a>
+                </li>
+                <li className="hover:text-gray-100 hover:border-b border-b-gray-100">
+                  <a href="/team_builder">Communities</a>
+                </li>
+                <li className="hover:text-gray-100 hover:border-b border-b-gray-100">
+                  <a href="/team_builder">FAQ</a>
+                </li>
+              </ul>
+            </div>
+            <div className="flex flex-col justify-center">
+              <div className="flex border-2 items-center border-slate-100/50 mx-4 rounded-md">
+                <div className="flex flex-col justify-center border-r border-gray-600 h-full">
+                  <p className="min-w-16 font-semibold text-center text-slate-200">
+                    EUW
+                  </p>
+                </div>
+                <input
+                  type="text"
+                  className="h-10 px-2 bg-transparent"
+                  placeholder="Search summoner"
+                />
               </div>
-            </a>
-            <ul className="flex gap-x-6 text-gray-300 items-center">
-              <li className=" hover:text-gray-100 hover:border-b border-b-gray-100">
-                <a href="/team_builder">Team Builder</a>
-              </li>
-              <li className=" hover:text-gray-100 hover:border-b border-b-gray-100">
-                <a href="/team_builder">Multisearch</a>
-              </li>
-              <li className=" hover:text-gray-100 hover:border-b border-b-gray-100">
-                <a href="/team_builder">Communities</a>
-              </li>
-              <li className=" hover:text-gray-100 hover:border-b border-b-gray-100">
-                <a href="/team_builder">FAQ</a>
-              </li>
-            </ul>
+            </div>
           </nav>
         </header>
         {children}
+        <footer className="">
+          <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-6 lg:px-8">
+            <div className="mt-10 flex justify-center space-x-10">
+              {socials.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  className="flex text-gray-400 hover:text-gray-500"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <span>
+                    <item.icon />
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <p className="mt-10 text-center text-xs leading-5 text-gray-500">
+              Tahm-Ken.ch isn&apos;t endorsed by Riot Games and doesn&apos;t
+              reflect the views or opinions of Riot Games or anyone officially
+              involved in producing or managing Riot Games properties.
+              <br />
+              Riot Games, and all associated properties are trademarks or
+              registered trademarks of Riot Games, Inc.
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   );
