@@ -16,7 +16,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="fixed bg-[url('/img/tahm_kench/TahmKench_30.jpg')] bg-center bg-cover w-full h-full blur-sm saturate-150 scale-[1.2] -scale-x-[1.2]  opacity-20 -z-40" />
+        <header>
+          <nav className="flex">
+            <a href="/">
+              <div className="flex h-16 w-16 p-2 m-4 justify-center items-center">
+                <img src="/img/tahm_kench/icon.png" alt="logo" />
+              </div>
+            </a>
+            <ul className="flex gap-x-6 text-gray-300 items-center">
+              <li className=" hover:text-gray-100 hover:border-b border-b-gray-100">
+                <a href="/team_builder">Team Builder</a>
+              </li>
+              <li className=" hover:text-gray-100 hover:border-b border-b-gray-100">
+                <a href="/team_builder">Multisearch</a>
+              </li>
+              <li className=" hover:text-gray-100 hover:border-b border-b-gray-100">
+                <a href="/team_builder">Communities</a>
+              </li>
+              <li className=" hover:text-gray-100 hover:border-b border-b-gray-100">
+                <a href="/team_builder">FAQ</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
