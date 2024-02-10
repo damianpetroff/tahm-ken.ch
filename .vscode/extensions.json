@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+      "mhutchie.git-graph",
+      "cweijan.vscode-mysql-client2",
+      "esbenp.prettier-vscode",
+      "burkeholland.simple-react-snippets",
+      "bradlc.vscode-tailwindcss",
+      "dbaeumer.vscode-eslint",
+      "SonarSource.sonarlint-vscode",
+      "rvest.vs-code-prettier-eslint",
+      "Shibu.nextjs-js-ts-code-snippets",
+      "eamodio.gitlens",
+      "Postman.postman-for-vscode",
+      "formulahendry.auto-rename-tag",
+      "dotenv.dotenv-vscode",
+      "aaron-bond.better-comments"
+    ]
+  }
